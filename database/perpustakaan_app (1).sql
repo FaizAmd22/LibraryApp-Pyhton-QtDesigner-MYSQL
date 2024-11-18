@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Nov 2024 pada 04.35
+-- Waktu pembuatan: 18 Nov 2024 pada 03.53
 -- Versi server: 10.4.25-MariaDB
 -- Versi PHP: 8.1.10
 
@@ -34,23 +34,28 @@ CREATE TABLE `anggota` (
   `alamat` varchar(20) NOT NULL,
   `no_hp` varchar(255) NOT NULL,
   `email` varchar(100) NOT NULL,
-  `is_delete` tinyint(1) NOT NULL DEFAULT 0
+  `is_delete` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `anggota`
 --
 
-INSERT INTO `anggota` (`id_anggota`, `nama_anggota`, `jenis_kelamin`, `alamat`, `no_hp`, `email`, `is_delete`) VALUES
-('2', 'orang2', 'Laki-laki', 'aslkdhalskjdlka', '0298130928301982', 'test@mail.com', 1),
-('3', 'test03', 'Laki-laki', 'asdasdwdasdas', '2312312312312', 'mail03@mail.com', 1),
-('MBR15002', 'aefasdasda', 'Perempuan', 'sdasdasdasd', '324342342342342', 'mail@mail.com', 1),
-('MBR15269', 'Christ John', 'Laki-laki', 'Ciledug', '012934567891', 'jonkris@mail.com', 0),
-('MBR6348', 'wsdasdasda', 'Perempuan', 'dsadasasfa', '2132121231', 'mail@mail.c', 1),
-('MBR81087', 'akjsbdkajbsd', 'Perempuan', 'sdasdasdasdas', '209173029703912', 'email@mail.co', 1),
-('MBR83805', 'Anggota Baru', 'Perempuan', 'Heaven', '01111111111111111', 'angel@gmail.com', 0),
-('MBR89666', 'Ujang Karbu', 'Laki-laki', 'Kab. Bogor', '0811111111111', 'ujang@gmail.com', 0),
-('MBR99437', 'Mamang Racing', 'Laki-laki', 'Depok Pride', '08213625317622', 'racingspeed@gamil.com', 0);
+INSERT INTO `anggota` (`id_anggota`, `nama_anggota`, `jenis_kelamin`, `alamat`, `no_hp`, `email`, `is_delete`, `created_at`) VALUES
+('2', 'orang2', 'Laki-laki', 'aslkdhalskjdlka', '0298130928301982', 'test@mail.com', 1, '2024-11-10 00:00:00'),
+('3', 'test03', 'Laki-laki', 'asdasdwdasdas', '2312312312312', 'mail03@mail.com', 1, '2024-11-10 00:00:00'),
+('MBR15002', 'aefasdasda', 'Perempuan', 'sdasdasdasd', '324342342342342', 'mail@mail.com', 1, '2024-11-10 00:00:00'),
+('MBR15269', 'Christ John', 'Laki-laki', 'Ciledug', '012934567891', 'jonkris@mail.com', 0, '2024-11-10 00:00:00'),
+('MBR6348', 'wsdasdasda', 'Perempuan', 'dsadasasfa', '2132121231', 'mail@mail.c', 1, '2024-11-10 00:00:00'),
+('MBR80376', 'test baru', 'Perempuan', 'everest', '00000000000000', 'everru@mail.test', 1, '2024-11-10 00:00:00'),
+('MBR81087', 'akjsbdkajbsd', 'Perempuan', 'sdasdasdasdas', '209173029703912', 'email@mail.co', 1, '2024-11-10 00:00:00'),
+('MBR83008', 'test2', 'Laki-laki', 'testtt', '080808080808', 'test@gmail.test', 1, '2024-11-17 22:01:29'),
+('MBR83805', 'Anggota Baru', 'Perempuan', 'Heaven', '01111111111111111', 'angel@gmail.com', 1, '2024-11-10 00:00:00'),
+('MBR85187', 'Fufufafa', 'Laki-laki', 'Namex', '01010101010101', 'fufufafa@mail.fa', 0, '2024-11-10 00:00:00'),
+('MBR89666', 'Ujang Karbu', 'Laki-laki', 'Kab. Bogor', '0811111111111', 'ujang@gmail.com', 0, '2024-11-10 00:00:00'),
+('MBR91592', 'fix lahh', 'Laki-laki', 'fix', '02931231292321', 'fix@mail.fix', 0, '2024-11-10 18:33:47'),
+('MBR99437', 'Mamang Racing', 'Laki-laki', 'Depok Pride', '08213625317622', 'racingspeed@gamil.com', 0, '2024-11-10 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -66,18 +71,19 @@ CREATE TABLE `buku` (
   `penerbit` varchar(100) NOT NULL,
   `tanggal_publikasi` date NOT NULL,
   `jumlah_stok` int(11) NOT NULL,
-  `is_delete` tinyint(1) NOT NULL DEFAULT 0
+  `is_delete` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `buku`
 --
 
-INSERT INTO `buku` (`isbn`, `nama_genre`, `nama_penulis`, `judul`, `penerbit`, `tanggal_publikasi`, `jumlah_stok`, `is_delete`) VALUES
-('28371t82732', 'rterawaw', 'testtt', 'testt', 'asdaweawea', '2000-01-01', 12, 1),
-('9786020631653', 'Misteri', 'Sir Arthur Conan Doyle', 'Sherlock Holmes - A Study In Scarlet', 'Gramedia Pustaka Utama', '2019-07-29', 34, 0),
-('9786022203049', 'Fiksi', 'J. S Khairen', 'Kami (Bukan) Sarjana Kertas', 'Kawah Media', '2019-02-14', 44, 0),
-('9789797809492', 'Horor', 'Kisah Tanah Jawa', 'Kisah Tanah Jawa : Pocong Gundul', 'Kawah Media', '2019-12-21', 2, 0);
+INSERT INTO `buku` (`isbn`, `nama_genre`, `nama_penulis`, `judul`, `penerbit`, `tanggal_publikasi`, `jumlah_stok`, `is_delete`, `created_at`) VALUES
+('28371t82732', 'rterawaw', 'testtt', 'testt', 'asdaweawea', '2000-01-01', 12, 1, '2024-11-10 00:00:00'),
+('9786020631653', 'Misteri', 'Sir Arthur Conan Doyle', 'Sherlock Holmes - A Study In Scarlet', 'Gramedia Pustaka Utama', '2019-07-29', 34, 0, '2024-11-10 00:00:00'),
+('9786022203049', 'Fiksi', 'J. S Khairen', 'Kami (Bukan) Sarjana Kertas', 'Kawah Media', '2019-02-14', 44, 0, '2024-11-10 00:00:00'),
+('9789797809492', 'Horor', 'Kisah Tanah Jawa', 'Kisah Tanah Jawa : Pocong Gundul', 'Kawah Media', '2019-12-21', 2, 0, '2024-11-10 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -115,20 +121,21 @@ CREATE TABLE `peminjaman_buku` (
   `tanggal_peminjaman` date NOT NULL,
   `tanggal_untuk_pengembalian` date NOT NULL,
   `tanggal_pengembalian` date DEFAULT NULL,
-  `is_delete` tinyint(1) NOT NULL DEFAULT 0
+  `is_delete` tinyint(1) NOT NULL DEFAULT 0,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data untuk tabel `peminjaman_buku`
 --
 
-INSERT INTO `peminjaman_buku` (`id_peminjaman`, `nama_anggota`, `judul_buku`, `tanggal_peminjaman`, `tanggal_untuk_pengembalian`, `tanggal_pengembalian`, `is_delete`) VALUES
-('19085282', 'Ujang Karbu', 'Kisah Tanah Jawa : Pocong Gundul', '2024-11-08', '2024-11-15', '2024-11-08', 0),
-('29494173', 'Christ John', 'Kisah Tanah Jawa : Pocong Gundul', '2024-11-08', '2024-11-15', '2024-11-08', 0),
-('50037508', 'Anggota Baru', 'Kisah Tanah Jawa : Pocong Gundul', '2024-11-08', '2024-11-15', '2024-11-08', 0),
-('51354152', 'Mamang Racing', 'Sherlock Holmes - A Study In Scarlet', '2024-11-08', '2024-11-15', '2024-11-08', 0),
-('63959375', 'Mamang Racing', 'Kami (Bukan) Sarjana Kertas', '2024-11-08', '2024-11-15', NULL, 0),
-('71026458', 'Ujang Karbu', 'Sherlock Holmes - A Study In Scarlet', '2024-11-07', '2024-11-14', '2024-11-14', 0);
+INSERT INTO `peminjaman_buku` (`id_peminjaman`, `nama_anggota`, `judul_buku`, `tanggal_peminjaman`, `tanggal_untuk_pengembalian`, `tanggal_pengembalian`, `is_delete`, `created_at`) VALUES
+('19085282', 'Ujang Karbu', 'Kisah Tanah Jawa : Pocong Gundul', '2024-11-08', '2024-11-15', '2024-11-08', 0, '2024-11-10 00:00:00'),
+('29494173', 'Christ John', 'Kisah Tanah Jawa : Pocong Gundul', '2024-11-08', '2024-11-15', '2024-11-08', 0, '2024-11-10 00:00:00'),
+('50037508', 'Anggota Baru', 'Kisah Tanah Jawa : Pocong Gundul', '2024-11-08', '2024-11-15', '2024-11-08', 0, '2024-11-10 00:00:00'),
+('51354152', 'Mamang Racing', 'Sherlock Holmes - A Study In Scarlet', '2024-11-08', '2024-11-15', '2024-11-08', 0, '2024-11-10 00:00:00'),
+('63959375', 'Mamang Racing', 'Kami (Bukan) Sarjana Kertas', '2024-11-08', '2024-11-15', NULL, 0, '2024-11-10 00:00:00'),
+('71026458', 'Ujang Karbu', 'Sherlock Holmes - A Study In Scarlet', '2024-11-07', '2024-11-14', '2024-11-14', 0, '2024-11-10 00:00:00');
 
 -- --------------------------------------------------------
 
